@@ -15,11 +15,11 @@ spec:
         app: nginx
     spec:
       containers:
-      - name: nginx-container
-        image: nginx:latest
-        volumeMounts:
-        - name: mypvc
-          mountPath: /var/lib/www/html
+        - name: nginx-container
+          image: nginx:latest
+          volumeMounts:
+            - name: mypvc
+              mountPath: /var/lib/www/html
       volumes:
         - name: mypvc
           persistentVolumeClaim:
