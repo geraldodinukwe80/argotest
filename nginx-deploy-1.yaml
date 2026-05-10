@@ -17,3 +17,11 @@ spec:
       containers:
       - name: nginx-container
         image: nginx:latest
+        volumeMounts:
+        - name: mypvc
+          mountPath: /var/lib/www/html
+      volumes:
+        - name: mypvc
+          persistentVolumeClaim:
+            claimName: rbd-pvc
+            readOnly: false
