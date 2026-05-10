@@ -15,14 +15,13 @@ spec:
         app: nginx
     spec:
       containers:
-      - name: web-server
-        image: nginx1
+      - name: nginx-container
+        image: nginx:latest
         volumeMounts:
-        - name: mypvc1
+        - name: mypvc
           mountPath: /var/lib/www/html
-    volumes:
-      - name: mypvc1
-        persistentVolumeClaim:
-          claimName: rbd-pvc
-          readOnly: false
-     
+      volumes:
+        - name: mypvc
+          persistentVolumeClaim:
+            claimName: rbd-pvc
+            readOnly: false
